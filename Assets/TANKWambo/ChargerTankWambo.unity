@@ -155,8 +155,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _showInfo: 1
   _explanation: "Reset game when player is killed. Trigger is called from player
-    collision.\n----------------\nEvery [0,5,5] seconds, trigger the actions::\nFirst,
-    \n           switches to scene TANKWambo_test\n"
+    collision.\n----------------\nEvery [0,5,5] seconds, trigger the actions::\n
+    First, \n           switches to scene ChargerTankWambo\n"
   description: Reset game when player is killed. Trigger is called from player collision.
   enableTrigger: 0
   allowRetrigger: 1
@@ -195,14 +195,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _showInfo: 1
-  _explanation: ' switches to scene TANKWambo_test'
+  _explanation: ' switches to scene ChargerTankWambo'
   description: 
   enableAction: 1
   hasTags: 0
   actionTags: []
   hasConditions: 0
   actionConditions: []
-  sceneName: TANKWambo_test
+  sceneName: ChargerTankWambo
 --- !u!1 &162631897
 GameObject:
   m_ObjectHideFlags: 0
