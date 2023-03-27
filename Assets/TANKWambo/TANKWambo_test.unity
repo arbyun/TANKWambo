@@ -155,8 +155,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _showInfo: 1
   _explanation: "Reset game when player is killed. Trigger is called from player
-    collision.\n----------------\nEvery [0,5,5] seconds, trigger the actions::\n
-    First, \n           switches to scene TANKWambo_test\n"
+    collision.\n----------------\nEvery [0,5,5] seconds, trigger the actions::\n         
+    switches to scene TANKWambo_test\n"
   description: Reset game when player is killed. Trigger is called from player collision.
   enableTrigger: 0
   allowRetrigger: 1
@@ -338,6 +338,14 @@ PrefabInstance:
         \n          plays sound crate_break_sound at volume 1 and at pitch 1\n         
         destroys this object\n"
       objectReference: {fileID: 0}
+    - target: {fileID: 7565831206837395587, guid: 8068e3a902d338541b50ad0bf648b903, type: 3}
+      propertyPath: m_SortingLayer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7565831206837395587, guid: 8068e3a902d338541b50ad0bf648b903, type: 3}
+      propertyPath: m_SortingLayerID
+      value: 1663161947
+      objectReference: {fileID: 0}
     - target: {fileID: 7565831206837395590, guid: 8068e3a902d338541b50ad0bf648b903, type: 3}
       propertyPath: m_Name
       value: _D_CrateWood
@@ -409,6 +417,14 @@ PrefabInstance:
       value: "When a collision with a bounding volume with tags [Bullet] starts:\nFirst,
         \n          plays sound crate_break_sound at volume 1 and at pitch 1\n         
         destroys this object\n"
+      objectReference: {fileID: 0}
+    - target: {fileID: 7565831206837395587, guid: 8068e3a902d338541b50ad0bf648b903, type: 3}
+      propertyPath: m_SortingLayer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7565831206837395587, guid: 8068e3a902d338541b50ad0bf648b903, type: 3}
+      propertyPath: m_SortingLayerID
+      value: 1663161947
       objectReference: {fileID: 0}
     - target: {fileID: 7565831206837395590, guid: 8068e3a902d338541b50ad0bf648b903, type: 3}
       propertyPath: m_Name
@@ -522,13 +538,16 @@ MonoBehaviour:
   actionTags: []
   hasConditions: 0
   actionConditions:
-  - valueHandler: {fileID: 0}
+  - negate: 0
+    valueHandler: {fileID: 0}
     variable: {fileID: 0}
     valueType: 0
     tag: {fileID: 0}
     sourceTransform: {fileID: 0}
     rigidBody: {fileID: 0}
     axis: 0
+    probe: {fileID: 0}
+    movementPlatformer: {fileID: 0}
     comparison: 0
     value: 0
     percentageCompare: 0
@@ -616,8 +635,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 5103727
-  m_SortingLayer: 3
+  m_SortingLayerID: 1663161947
+  m_SortingLayer: 2
   m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 6abcff5c053fa3f4b8567447981f3a29, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -643,9 +662,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _showInfo: 1
-  _explanation: "Every [3,5] seconds, trigger the actions::\n First, \n         
-    spawns prefab _B_Default at the position of Bullet Spawner\n          plays sound
-    shoot_sound at volume 1 and at pitch 1\n"
+  _explanation: "Every [3,5] seconds, trigger the actions::\n          spawns prefab
+    _B_Default at the position of Bullet Spawner\n          plays sound shoot_sound
+    at volume 1 and at pitch 1\n"
   description: 
   enableTrigger: 1
   allowRetrigger: 1
@@ -752,7 +771,7 @@ TilemapRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -1970767857
+  m_SortingLayerID: 794614101
   m_SortingLayer: 1
   m_SortingOrder: 0
   m_ChunkSize: {x: 32, y: 32, z: 32}
@@ -10450,6 +10469,14 @@ PrefabInstance:
         \n          plays sound crate_break_sound at volume 1 and at pitch 1\n         
         destroys this object\n"
       objectReference: {fileID: 0}
+    - target: {fileID: 7565831206837395587, guid: 8068e3a902d338541b50ad0bf648b903, type: 3}
+      propertyPath: m_SortingLayer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7565831206837395587, guid: 8068e3a902d338541b50ad0bf648b903, type: 3}
+      propertyPath: m_SortingLayerID
+      value: 1663161947
+      objectReference: {fileID: 0}
     - target: {fileID: 7565831206837395590, guid: 8068e3a902d338541b50ad0bf648b903, type: 3}
       propertyPath: m_Name
       value: _D_CrateWood
@@ -10706,8 +10733,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 5103727
-  m_SortingLayer: 3
+  m_SortingLayerID: 1663161947
+  m_SortingLayer: 2
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 1597665baf0bc304197bd6769a6c7988, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -10850,7 +10877,7 @@ MonoBehaviour:
   m_Intensity: 1
   m_LightVolumeIntensity: 1
   m_LightVolumeIntensityEnabled: 0
-  m_ApplyToSortingLayers: 000000000f78888a3bc69e496fe04d00191e6a77
+  m_ApplyToSortingLayers: 0000000055d95c2f5bd621637b288be4
   m_LightCookieSprite: {fileID: 0}
   m_DeprecatedPointLightCookieSprite: {fileID: 0}
   m_LightOrder: 0
@@ -11020,6 +11047,14 @@ PrefabInstance:
         \n          plays sound crate_break_sound at volume 1 and at pitch 1\n         
         destroys this object\n"
       objectReference: {fileID: 0}
+    - target: {fileID: 7565831206837395587, guid: 8068e3a902d338541b50ad0bf648b903, type: 3}
+      propertyPath: m_SortingLayer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7565831206837395587, guid: 8068e3a902d338541b50ad0bf648b903, type: 3}
+      propertyPath: m_SortingLayerID
+      value: 1663161947
+      objectReference: {fileID: 0}
     - target: {fileID: 7565831206837395590, guid: 8068e3a902d338541b50ad0bf648b903, type: 3}
       propertyPath: m_Name
       value: _D_CrateWood
@@ -11092,6 +11127,14 @@ PrefabInstance:
         \n          plays sound crate_break_sound at volume 1 and at pitch 1\n         
         destroys this object\n"
       objectReference: {fileID: 0}
+    - target: {fileID: 7565831206837395587, guid: 8068e3a902d338541b50ad0bf648b903, type: 3}
+      propertyPath: m_SortingLayer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7565831206837395587, guid: 8068e3a902d338541b50ad0bf648b903, type: 3}
+      propertyPath: m_SortingLayerID
+      value: 1663161947
+      objectReference: {fileID: 0}
     - target: {fileID: 7565831206837395590, guid: 8068e3a902d338541b50ad0bf648b903, type: 3}
       propertyPath: m_Name
       value: _D_CrateWood
@@ -11163,6 +11206,14 @@ PrefabInstance:
       value: "When a collision with a bounding volume with tags [Bullet] starts:\nFirst,
         \n          plays sound crate_break_sound at volume 1 and at pitch 1\n         
         destroys this object\n"
+      objectReference: {fileID: 0}
+    - target: {fileID: 7565831206837395587, guid: 8068e3a902d338541b50ad0bf648b903, type: 3}
+      propertyPath: m_SortingLayer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7565831206837395587, guid: 8068e3a902d338541b50ad0bf648b903, type: 3}
+      propertyPath: m_SortingLayerID
+      value: 1663161947
       objectReference: {fileID: 0}
     - target: {fileID: 7565831206837395590, guid: 8068e3a902d338541b50ad0bf648b903, type: 3}
       propertyPath: m_Name
@@ -11294,7 +11345,7 @@ TilemapRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 1235142203
+  m_SortingLayerID: 1663161947
   m_SortingLayer: 2
   m_SortingOrder: 0
   m_ChunkSize: {x: 32, y: 32, z: 32}
@@ -14222,6 +14273,14 @@ PrefabInstance:
         \n          plays sound crate_break_sound at volume 1 and at pitch 1\n         
         destroys this object\n"
       objectReference: {fileID: 0}
+    - target: {fileID: 7565831206837395587, guid: 8068e3a902d338541b50ad0bf648b903, type: 3}
+      propertyPath: m_SortingLayer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7565831206837395587, guid: 8068e3a902d338541b50ad0bf648b903, type: 3}
+      propertyPath: m_SortingLayerID
+      value: 1663161947
+      objectReference: {fileID: 0}
     - target: {fileID: 7565831206837395590, guid: 8068e3a902d338541b50ad0bf648b903, type: 3}
       propertyPath: m_Name
       value: _D_CrateWood
@@ -14356,9 +14415,9 @@ TilemapRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 1235142203
+  m_SortingLayerID: 1663161947
   m_SortingLayer: 2
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0, y: 0, z: 0}
   m_MaxChunkCount: 16
@@ -14450,6 +14509,14 @@ PrefabInstance:
         \n          plays sound crate_break_sound at volume 1 and at pitch 1\n         
         destroys this object\n"
       objectReference: {fileID: 0}
+    - target: {fileID: 7565831206837395587, guid: 8068e3a902d338541b50ad0bf648b903, type: 3}
+      propertyPath: m_SortingLayer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7565831206837395587, guid: 8068e3a902d338541b50ad0bf648b903, type: 3}
+      propertyPath: m_SortingLayerID
+      value: 1663161947
+      objectReference: {fileID: 0}
     - target: {fileID: 7565831206837395590, guid: 8068e3a902d338541b50ad0bf648b903, type: 3}
       propertyPath: m_Name
       value: _D_CrateWood
@@ -14512,6 +14579,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 8382344258430041693, guid: 9dedd07ba83556f428fda5713bec7920, type: 3}
+      propertyPath: m_SortingLayer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8382344258430041693, guid: 9dedd07ba83556f428fda5713bec7920, type: 3}
+      propertyPath: m_SortingLayerID
+      value: 1663161947
+      objectReference: {fileID: 0}
     - target: {fileID: 8382344258430041695, guid: 9dedd07ba83556f428fda5713bec7920, type: 3}
       propertyPath: cameraObject
       value: 
@@ -14564,9 +14639,25 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8382344259849635922, guid: 9dedd07ba83556f428fda5713bec7920, type: 3}
+      propertyPath: m_SortingLayer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8382344259849635922, guid: 9dedd07ba83556f428fda5713bec7920, type: 3}
+      propertyPath: m_SortingLayerID
+      value: 1663161947
+      objectReference: {fileID: 0}
     - target: {fileID: 8382344259849635933, guid: 9dedd07ba83556f428fda5713bec7920, type: 3}
       propertyPath: target
       value: 
       objectReference: {fileID: 94019394}
+    - target: {fileID: 8382344260229210101, guid: 9dedd07ba83556f428fda5713bec7920, type: 3}
+      propertyPath: m_SortingLayer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8382344260229210101, guid: 9dedd07ba83556f428fda5713bec7920, type: 3}
+      propertyPath: m_SortingLayerID
+      value: 1663161947
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9dedd07ba83556f428fda5713bec7920, type: 3}

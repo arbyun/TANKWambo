@@ -79,8 +79,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 5103727
-  m_SortingLayer: 3
+  m_SortingLayerID: 1663161947
+  m_SortingLayer: 2
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 3fd497dfb463acf4bba35a5bb6d55502, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -161,10 +161,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _showInfo: 1
   _explanation: "Active Time (5s) & Warning Time (3s)\n----------------\nAfter 5
-    seconds, trigger the actions::\n First, \n          blinks renderer _M_Default
-    for 3 seconds\n then, at 3 seconds, \n          spawns prefab Explosion at the
-    position of this object (_M_Default)\n          plays sound explosion_sound at
-    volume 1 and at pitch 1\n          destroys this object\n"
+    seconds, trigger the actions::\n          blinks renderer _M_Default for 3 seconds\n
+    then, at 3 seconds, \n          spawns prefab _M_Explosion at the position of
+    this object (_M_Default)\n          plays sound explosion_sound at volume 1 and
+    at pitch 1\n          destroys this object\n"
   description: Active Time (5s) & Warning Time (3s)
   enableTrigger: 1
   allowRetrigger: 0

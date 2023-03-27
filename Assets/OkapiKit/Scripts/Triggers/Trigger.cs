@@ -8,20 +8,13 @@ using Unity.VisualScripting;
 
 public abstract class Trigger : OkapiElement
 {
-    [System.Serializable]
-    public struct ActionTrigger
-    {
-        public float    delay;
-        public Action   action;
-    }
-
     [SerializeField]
     public      bool            enableTrigger = true;
     [SerializeField]
     public      bool            allowRetrigger = true;
     [SerializeField]
     private     bool            hasPreconditions = false;
-    [SerializeField, ShowIf("hasPreconditions")] 
+    [SerializeField] 
     private     Condition[]     preConditions;
     [SerializeField]
     protected   ActionTrigger[] actions;
@@ -56,21 +49,30 @@ public abstract class Trigger : OkapiElement
 
         _explanation += GetRawDescription("", gameObject) + ":\n";
 
-        if (actions != null)
+        _explanation += GetDescriptionActions(actions);
+
+        return _explanation;
+    }
+
+    protected string GetDescriptionActions(ActionTrigger[] actionList)
+    {
+        string ret = "";
+
+        if ((actionList != null) && (actionList.Length > 0))
         {
-            List<ActionTrigger> sortedActions = new List<ActionTrigger>(actions);
-            sortedActions.Sort((e1, e2) => (e1.delay == e2.delay)?(0): ((e1.delay < e2.delay) ? (-1):(1)));
+            List<ActionTrigger> sortedActions = new List<ActionTrigger>(actionList);
+            sortedActions.Sort((e1, e2) => (e1.delay == e2.delay) ? (0) : ((e1.delay < e2.delay) ? (-1) : (1)));
 
             float lastTime = -float.MaxValue;
             for (int i = 0; i < sortedActions.Count; i++)
             {
                 var action = sortedActions[i];
                 string actionDesc = "[NULL]";
-                string timeString = $" At {action.delay} seconds, \n";
+                string timeString = $" At {action.delay} seconds, ";
 
                 if (action.delay == 0)
                 {
-                    timeString = $" First, \n";
+                    timeString = "";
                 }
                 else
                 {
@@ -97,13 +99,13 @@ public abstract class Trigger : OkapiElement
                     actionDesc = actionDesc.Replace("\n", "\n" + spaces);
                 }
 
-                _explanation += $"{timeString}{actionDesc}\n";
+                ret += $"{timeString}{actionDesc}\n";
 
                 lastTime = action.delay;
             }
         }
 
-        return _explanation;
+        return ret;
     }
 
     protected bool EvaluatePreconditions()
@@ -142,7 +144,7 @@ public abstract class Trigger : OkapiElement
         alreadyTriggered = true;
     }
 
-    IEnumerator ExecuteTriggerCR(ActionTrigger action)
+    protected IEnumerator ExecuteTriggerCR(ActionTrigger action)
     {
         yield return new WaitForSeconds(action.delay);
 

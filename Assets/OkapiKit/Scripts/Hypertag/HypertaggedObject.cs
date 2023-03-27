@@ -3,14 +3,17 @@ using System.Collections.Generic;
 using UnityEngine;
 using NaughtyAttributes;
 
+[DisallowMultipleComponent]
 public class HypertaggedObject : OkapiElement
 {
     [SerializeField] 
-    private Hypertag[]  hypertags;
+    private List<Hypertag>  hypertags;
+
+    public Hypertag[] GetTags() {  return hypertags.ToArray(); }
 
     public string GetTagString()
     {
-        if ((hypertags == null) || (hypertags.Length == 0)) return "Hypertag";
+        if ((hypertags == null) || (hypertags.Count == 0)) return "";
 
         string ret = "";
         foreach (var tag in hypertags)
@@ -24,12 +27,54 @@ public class HypertaggedObject : OkapiElement
 
         return ret;
     }
+
+    public void AddTag(Hypertag tag)
+    {
+        if (hypertags == null) hypertags = new List<Hypertag>();
+
+        if (!hypertags.Contains(tag)) hypertags.Add(tag);
+    }
+
+    public void AddTag(Hypertag[] tags)
+    {
+        foreach (var t in tags)
+        {
+            AddTag(t);
+        }
+    }
+
+    public void AddTag(List<Hypertag> tags)
+    {
+        foreach (var t in tags)
+        {
+            AddTag(t);
+        }
+    }
+
+
+
     public bool Has(Hypertag tag)
     {
         if (hypertags == null) return false;
         foreach (var t in hypertags)
         {
             if (t == tag) return true;
+        }
+
+        return false;
+    }
+
+    public bool Has(Hypertag[] tags)
+    {
+        if (hypertags == null) return false;
+        if (tags == null) return false;
+
+        foreach (var t1 in tags)
+        {
+            foreach (var t2 in hypertags)
+            {
+                if (t1 == t2) return true;
+            }
         }
 
         return false;
@@ -42,13 +87,9 @@ public class HypertaggedObject : OkapiElement
         var objs = FindObjectsOfType<HypertaggedObject>();
         foreach (var obj in objs)
         {
-            foreach (var t in tags)
+            if (obj.Has(tags))
             {
-                if (obj.Has(t))
-                {
-                    ret.Add(obj.gameObject);
-                    break;
-                }
+                ret.Add(obj.gameObject);
             }
         }
 
@@ -65,7 +106,6 @@ public class HypertaggedObject : OkapiElement
             if (obj.Has(tag))
             {
                 ret.Add(obj.gameObject);
-                break;
             }
         }
 
@@ -98,16 +138,19 @@ public class HypertaggedObject : OkapiElement
         string e = GetRawDescription("", gameObject);
 
         _explanation = "";
-        for (int i = 0; i < e.Length; i++)
+        if (e != null)
         {
-            if (i != ' ')
+            for (int i = 0; i < e.Length; i++)
             {
-                _explanation += char.ToUpper(e[i]) + e.Substring(i + 1);
-                break;
-            }
-            else
-            {
-                _explanation += e[i];
+                if (i != ' ')
+                {
+                    _explanation += char.ToUpper(e[i]) + e.Substring(i + 1);
+                    break;
+                }
+                else
+                {
+                    _explanation += e[i];
+                }
             }
         }
         return _explanation;
