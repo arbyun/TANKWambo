@@ -7,21 +7,22 @@ using UnityEngine.SceneManagement;
 public class LaserCollision : MonoBehaviour
 {
 
-    [SerializeField] public GameObject _playerObject;
-    [SerializeField]  AudioClip clip;
-    Transform _playerTransform;
-    ParticleSystem ps;
-    public List<ParticleCollisionEvent> collisionEvents;
+    [SerializeField] public GameObject playerObject;
+    [SerializeField] private AudioClip clip;
+    private Transform playerTransform;
+    private ParticleSystem ps;
+
+    private List<ParticleCollisionEvent> collisionEvents;
     //public ParticleSystem.TriggerModule trigger;
     //public ParticleSystem.CollisionModule collision;
 
-    void OnEnable()
+    private void OnEnable()
     {
         ps = GetComponent<ParticleSystem>();
-        _playerTransform = _playerObject.transform;
+        playerTransform = playerObject.transform;
     }
 
-    void Start()
+    private void Start()
     {
         //Has been initiated, so let's set the collisions
         var coll = ps.collision;
@@ -30,14 +31,14 @@ public class LaserCollision : MonoBehaviour
             coll.enabled = true;
         }
 
-        coll.AddPlane(_playerTransform);
+        coll.AddPlane(playerTransform);
         collisionEvents = new List<ParticleCollisionEvent>();
     }
 
 
     private void OnParticleCollision(GameObject other)
     {
-        if (other.GetInstanceID() == _playerObject.GetInstanceID())
+        if (other.GetInstanceID() == playerObject.GetInstanceID())
         {
             int numCollisionEvents = ps.GetCollisionEvents(other, collisionEvents);
 
@@ -52,7 +53,7 @@ public class LaserCollision : MonoBehaviour
     {
         var crosshair = GameObject.FindGameObjectWithTag("crosshair");
 
-        SoundManager.PlaySound(clip, 1, 1);
+        //SoundManager.PlaySound(clip);
         Destroy(crosshair);
 
         yield return new WaitForSeconds(1);
